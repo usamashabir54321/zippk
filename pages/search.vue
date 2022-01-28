@@ -6,40 +6,23 @@
 					<div class="col-lg-8">
 							<!-- SECTION TITLES -->
 						<div class="section-title title-style-three text-center mb-40">
-							<h2 class="title">Search Result For "Sing 2"</h2>
+							<div class="main_search"><form @submit.prevent="searchAct"><input type="text" v-model="sStr" required placeholder="FIND FAVORITE MEDIA"><button>🔍</button></form></div>
+							<br>
+							<h2 v-if="srchdStr" class="title">Search Result For "{{ srchdStr }}"</h2>
 						</div>
 					</div>
 				</div>
-				<div class="row movie-item-row">
-					<div class="custom-col-">
-						<div class="movie-item movie-item-two">
-							<div class="movie-poster">
-								<img src="/web/img/poster/s_ucm_poster01.jpg" alt="">
-							</div>
-							<div class="movie-content">
-								<div class="rating"><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span></div>
-								<h5 class="title"><a href="movie-details.html">Message in a Bottle</a></h5>
-							</div>
-						</div>
-					</div>
-					<div class="custom-col-">
-						<div class="movie-item movie-item-two">
-							<div class="movie-poster">
-								<img src="/web/img/poster/s_ucm_poster02.jpg" alt="">
-							</div>
-							<div class="movie-content">
-								<div class="rating"><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span></div>
-								<h5 class="title"><a href="movie-details.html">The Parkar Legend</a></h5>
-							</div>
-						</div>
-					</div>
+				<div v-if="sArr.length > 0" class="row movie-item-row">
+					<div v-for="obj in sArr" class="custom-col-"><ComnProdCard1 :obj="obj" /></div>
 				</div>
+				<div v-else id="else_corp"></div>
 			</div>
 		</section>
 	</div>
 </template>
 
 <script>
+	import axios from 'axios';
 	export default {
 		name: 'SearchPage',
 		head () {
@@ -47,5 +30,24 @@
 				title: 'ZIP PK SEARCH PAGE',
 			}
 		},
+		data () {
+			return {
+				sArr: [],
+				sStr: '',
+				srchdStr: null,
+			}
+		},
+		methods: {
+			searchAct () {
+				axios.get(`${this.baseURL}api/webGetById/srchTitle/${this.sStr}`).then(res => {
+					this.sArr = res.data;
+					this.srchdStr = this.sStr;
+				});
+			},
+		},
 	}
 </script>
+
+<style>
+	div#else_corp {height: 27vh;}
+</style>

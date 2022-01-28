@@ -19,7 +19,7 @@
 	                            <div class="header-action">
 	                                <ul>
 	                                    <li class="header-search">
-	                                    	<div class="main_search"><form action="#"><input type="text" placeholder="FIND FAVORITE MEDIA"><button>🔍</button></form></div>
+	                                    	<div class="main_search"><form action="#"><input v-if="this.$route.name != 'search'" type="text" placeholder="FIND FAVORITE MEDIA"><button v-if="this.$route.name != 'search'">🔍</button></form></div>
 	                                    </li>
 	                                </ul>
 	                            </div>

@@ -16,7 +16,7 @@
 										<li><nuxt-link to="/seasons">Seasons</nuxt-link></li>
 										<li><nuxt-link to="/animations">Animes</nuxt-link></li>
 									</ul>
-									<div class="main_search"><form action="#"><input type="text" placeholder="FIND FAVORITE MEDIA"><button>🔍</button></form></div>
+									<div class="main_search"><form action="#"><input v-if="this.$route.name != 'search'" type="text" placeholder="FIND FAVORITE MEDIA"><button v-if="this.$route.name != 'search'">🔍</button></form></div>
 								</nav>
 							</div>
 						</div>
@@ -32,6 +32,7 @@
 									<li><nuxt-link to="/how-to-download">How To Download</nuxt-link></li>
 									<li><nuxt-link to="/search">Search</nuxt-link></li>
 									<li><nuxt-link to="/upcomings">Upcomings</nuxt-link></li>
+									<li><nuxt-link to="/categories">Categories</nuxt-link></li>
 								</ul>
 							</div>
 						</div>
