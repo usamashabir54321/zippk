@@ -24,15 +24,6 @@
 								<br />
 								<button onclick="authenticate().then(loadClient)" class="btn btn-danger btn-block">Sign in To Youtube</button>
 							</div>
-							<div>
-								<div class="form-group">
-									<input class="form-control" onchange="channelChanges()" type="text" id="channelId" placeholder="ChannelId"/>
-								</div>
-								<div class="form-group">
-									<button id="subscribe" onclick="subscribe()" class="btn btn-danger btn-block">Subscribe</button>
-								</div>
-								<div id="result"></div>
-							</div>
 						</div>
 					</div>
 				</div>

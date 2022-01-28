@@ -41,6 +41,7 @@ function loadClient() {
 		);
 }
 function subscribe() {
+	console.log('i am in subscribe');
 	var channelId = document.getElementById("channelId").value;
 	return gapi.client.youtube.subscriptions
 	.insert({
