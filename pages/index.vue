@@ -15,16 +15,6 @@
 							<button @click="active_tab = 'seasons'"  :class="active_tab == 'seasons' ? 'active' : ''">Seasons</button>
 							<button @click="active_tab = 'animations'"  :class="active_tab == 'animations' ? 'active' : ''">Animations</button>
 						</div>
-							<!-- INDEX.HTML -->
-						<div class="container">
-							<h1 style="text-align:center;">Youtube Subscribe App</h1>
-							<br />
-							<div id="block">
-								<h2>Let's start by first Authenticating to Youtube</h2>
-								<br />
-								<button onclick="authenticate().then(loadClient)" class="btn btn-danger btn-block">Sign in To Youtube</button>
-							</div>
-						</div>
 					</div>
 				</div>
 				<div class="row movie-item-row">
@@ -51,13 +41,6 @@
 		head () {
 			return {
 				title: 'ZIP PK HOME',
-				link: [
-					{ rel:"stylesheet" , href:"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" },
-				],
-				script: [
-					{ src:"https://apis.google.com/js/api.js" },
-					{ src:"/youtube.js" },
-				],
 			}
 		},
 		data () {
