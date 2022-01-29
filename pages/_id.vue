@@ -1,5 +1,6 @@
 <template>
 	<div>
+		<LazyWebModal v-if="is_inptMdl" @close="is_inptMdl = false" :url="thisObj.sku_url" />
 		<div v-if="$fetchState.pending" id="web_preloader"><img src="/cd_preload.gif"></div>
 		<div class="sec_cover"></div>
 		<section class="movie-details-area" :style="{'background-image':`url(${baseURL}${thisObj.banner_img})`}">
@@ -23,7 +24,7 @@
 						</div>
 					</div>
 					<div class="movie-details-btn">
-						<a href="img/poster/movie_details_img.jpg" class="download-btn" download="">Download <img src="/web/img/fonts/download.svg" alt=""></a>
+						<a @click="is_inptMdl = true"  class="download-btn" download="">Download <img src="/web/img/fonts/download.svg" alt=""></a>
 					</div>
 				</div>
 			</div>
@@ -68,6 +69,7 @@
 			return {
 				thisObj: {},
 				relData: [],
+				is_inptMdl: false,
 			}
 		},
 		async fetch() {

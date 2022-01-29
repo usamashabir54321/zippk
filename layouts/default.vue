@@ -359,6 +359,7 @@
 	    text-transform: uppercase;
 	    font-size: 13px;
 	    font-weight: 900;
+	    cursor: pointer;
 	    color: #14141d;
 	    letter-spacing: 5px;
 	    position: absolute;
